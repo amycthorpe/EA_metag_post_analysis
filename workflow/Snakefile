@@ -1,0 +1,75 @@
+# Pipeline for assembly and taxonomic analyses of SOC-D data
+#
+# Example call: snakemake -s workflow/Snakefile --configfile config/config.yaml --use-conda --conda-prefix ${CONDA_PREFIX}/pipeline --cores 1 -rpn
+
+##############################
+# MODULES
+import os, re
+import glob
+import pandas as pd
+
+# importing specific scripts for parsing etc.
+# from scripts.utils import find_fast5, assembler_pairs
+
+##############################
+# CONFIG
+# can be overwritten by using --configfile <path to config> when calling snakemake
+# configfile: "config/config.yaml"
+include:
+    "rules/init.smk"
+
+# print("no basecalling: {}".format(NO_BASECALLING))
+# print(INPUT_LINKS)
+
+
+##############################
+# TARGETS & RULES
+
+# List of (main) targets to be created
+TARGETS = []
+
+# Include rules and add targets based on the config file
+# include:
+#    "rules/setup.smk"
+
+# TARGETS.append("status/prepare_input.done") # TEST
+
+# singleM
+if "singlem" in STEPS:
+    include:
+        "rules/singlem.smk"
+    TARGETS += [
+        "status/singlem.done"
+    ]
+
+# metathermo
+if "metathermo" in STEPS:
+    include:
+        "rules/metathermo.smk"
+    TARGETS += [
+        "status/metathermo.done"
+    ]
+
+# microtrait
+if "microtrait" in STEPS:
+    include:
+        "rules/microtrait.smk"
+    TARGETS += [
+        "status/microtrait.done"
+    ]
+
+# metabolishmm
+if "metabolishmm" in STEPS:
+    include:
+        "rules/metabolishmm.smk"
+    TARGETS += [
+        "status/metabolishmm.done"
+    ]
+
+# No targets
+if len(TARGETS) == 0:
+    raise Exception('You are not serious. Nothing to be done? Really?')
+
+rule all:
+    input:
+        TARGETS

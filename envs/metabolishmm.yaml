@@ -1,0 +1,16 @@
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - hmmer=3.2.1
+  - mafft=7.475
+  - prodigal=2.6.3
+  - numpy=1.20.1
+  - raxml=8.2.12=h516909a_2
+  - readline=8.0=he28a2e2_2  
+  - pip:
+    - metabolishmm==2.22
+    - pandas==1.2.3
+    - scipy==1.6.1
+    - seaborn==0.11.1

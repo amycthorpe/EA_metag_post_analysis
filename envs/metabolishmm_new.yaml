@@ -1,0 +1,16 @@
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - hmmer
+  - mafft
+  - prodigal
+  - numpy
+  - raxml
+  - readline  
+  - pip:
+    - metabolishmm
+    - pandas
+    - scipy
+    - seaborn
