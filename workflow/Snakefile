@@ -66,6 +66,19 @@ if "metabolishmm" in STEPS:
         "status/metabolishmm.done"
     ]
 
+# coverage
+if "coverage" in STEPS:
+    include:
+        "rules/bin_taxqual.smk"
+    include:
+        "rules/bin_coverage.smk"
+    TARGETS += [
+        "status/bin_taxqual.done",
+        "status/bin_coverage.done"
+    ]
+
+
+
 # No targets
 if len(TARGETS) == 0:
     raise Exception('You are not serious. Nothing to be done? Really?')

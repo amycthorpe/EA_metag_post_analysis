@@ -2,15 +2,14 @@
 # STEPS
 
 # Steps to be done
-#steps: ["preprocessing", "taxonomy", "assembly", "contig_taxonomy", "kaiju", "annotation", "functions", "seed", "cluster", "coverage", "amr", "binning"] #TODO: "binning", "eukaryotes", "coassembly"
-# steps: ["singlem", "metathermo", "metabolishmm", "microtrait"] 
-steps: ["metabolishmm"] #"microtrait", "genomad"
+# steps: ["singlem", "metathermo", "metabolishmm", "microtrait", "coverage"] 
+steps: ["coverage"] #"microtrait", "genomad"
 
 
 ############################################################
 # INPUT
 # Directory where the workflow exists
-work_dir: "/prj/DECODE/ea_analysis"
+work_dir: "/prj/DECODE/EA_metag_post_analysis"
 
 # Directory where the data files are
 data_dir: "/prj/DECODE/ea_analysis/data" # USER_INPUT
@@ -19,10 +18,10 @@ data_dir: "/prj/DECODE/ea_analysis/data" # USER_INPUT
 results_dir: "/prj/DECODE/ea_analysis/results" # USER_INPUT
 
 # Directory where the conda environments are
-env_dir: "/prj/DECODE/ea_analysis/envs"
+env_dir: "/prj/DECODE/EA_metag_post_analysis/envs"
 
 # Directory with scripts
-src_dir: "/prj/DECODE/ea_analysis/scripts"
+src_dir: "/prj/DECODE/EA_metag_post_analysis/scripts"
 
 # Samples (if a relative path, relative to this repo)
 samples: "config/450_samples.tsv" # USER_INPUT
@@ -45,3 +44,19 @@ genomad:
   splits: 12
   threads: 24
 
+checkm:
+  threads: 64
+  extension: "fa"
+  git_path: "https://github.com/chklovski/CheckM2"
+
+drep:
+  threads: 64
+  comp: 70
+  cont: 16
+
+gtdbtk:
+  threads: 64
+  path: "/hdd0/susbus/databases/gtdbtk/release214"
+
+mapping:
+  threads: 36
