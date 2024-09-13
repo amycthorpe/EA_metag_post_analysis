@@ -129,7 +129,7 @@ rule checkm_db:
     log:
         os.path.join(RESULTS_DIR, "logs/checkm2_db.log")
     conda:
-        "checkm2"
+        "/home/amytho/miniconda3/envs/checkm2"
 #        os.path.join(ENV_DIR, "checkm.yaml")
     message:
         "Downloading the checkm2 database"
@@ -144,7 +144,7 @@ rule checkm_final:
     output:
         tsv=os.path.join(RESULTS_DIR, "bins/checkm2/quality_report.tsv")
     conda:
-        "checkm2" #/hdd0/susbus/tools/conda_envs/checkm2" # "checkm2"
+        "/home/amytho/miniconda3/envs/checkm2"  # /hdd0/susbus/tools/conda_envs/checkm2" # "checkm2"
 #        os.path.join(ENV_DIR, "checkm.yaml")
     log:
         os.path.join(RESULTS_DIR, "logs/checkm/checkm.out.log")
