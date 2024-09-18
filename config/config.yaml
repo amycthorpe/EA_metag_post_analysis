@@ -12,10 +12,10 @@ steps: ["coverage"] #"microtrait", "genomad"
 work_dir: "/prj/DECODE/EA_metag_post_analysis"
 
 # Directory where the data files are
-data_dir: "/prj/DECODE/ea_analysis/data" # USER_INPUT
+data_dir: "/prj/DECODE/EA_metag_post_analysis/data" # USER_INPUT
 
 # Directory for the results
-results_dir: "/prj/DECODE/ea_analysis/results" # USER_INPUT
+results_dir: "/prj/DECODE/ea_analysis/results_20240915" # USER_INPUT
 
 # Directory where the conda environments are
 env_dir: "/prj/DECODE/EA_metag_post_analysis/envs"
