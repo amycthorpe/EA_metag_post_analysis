@@ -7,7 +7,7 @@ Latest modification:
 Purpose: To run microtrait on MAGs
 """
 
-MAGS=glob_wildcards(os.path.join(DATA_DIR, "mags/{mags}.fa")).mags
+MAGS=glob_wildcards(os.path.join(RESULTS_DIR, "bins/finalbins/{mags}.fa")).mags
 
 
 ############################################
@@ -38,7 +38,7 @@ localrules:
 
 rule run_microtrait:
     input:
-        mags = os.path.join(DATA_DIR, "mags")
+        mags = os.path.join(RESULTS_DIR, "bins/finalbins")
 #        done = os.path.join(RESULTS_DIR, "microtrait/microtrait.installed")
     output:
         rds = os.path.join(RESULTS_DIR, "microtrait/genomeset_results.rds")

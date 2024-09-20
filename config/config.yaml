@@ -2,8 +2,8 @@
 # STEPS
 
 # Steps to be done
-# steps: ["singlem", "metathermo", "metabolishmm", "microtrait", "coverage"] 
-steps: ["coverage"] #"microtrait", "genomad"
+steps: ["metathermo", "singlem", "metabolishmm", "microtrait"] 
+  #steps: ["coverage"] #"microtrait", "genomad"
 
 
 ############################################################

@@ -7,7 +7,7 @@ Latest modification:
 Purpose: To run meta-thermo on MAGs
 """
 
-MAGS=glob_wildcards(os.path.join(DATA_DIR, "mags/{mags}.fa")).mags
+MAGS=glob_wildcards(os.path.join(RESULTS_DIR, "bins/finalbins/{mags}.fa")).mags
 
 
 ############################################
@@ -26,7 +26,8 @@ localrules:
 ############################################
 rule mag_prodigal:
     input:
-        os.path.join(DATA_DIR, "mags/{genome}.fa")
+        os.path.join(RESULTS_DIR, "bins/finalbins/{genome}.fa")
+       # os.path.join(DATA_DIR, "mags/{genome}.fa")
     output:
         protein = os.path.join(RESULTS_DIR, "Prodigal/{genome}.faa"),
         gff = os.path.join(RESULTS_DIR, "Prodigal/{genome}.gff"),

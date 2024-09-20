@@ -7,7 +7,7 @@ Latest modification:
 Purpose: To run metabolishmm on MAGs
 """
 
-MAGS=glob_wildcards(os.path.join(DATA_DIR, "mags/{mags}.fa")).mags
+MAGS=glob_wildcards(os.path.join(RESULTS_DIR, "bins/finalbins/{mags}.fa")).mags
 
 
 ############################################
@@ -26,7 +26,7 @@ localrules:
 # rules to run metabolisHMM
 rule metadata:
     input:
-        stat=os.path.join(DATA_DIR, "gtdbk.summary.tsv")
+        stat=os.path.join(RESULTS_DIR, "bins/gtdbtk_final/gtdbtk.bac120.summary.tsv")
     output:
         os.path.join(RESULTS_DIR, "data/metadata")
     shell:
@@ -44,10 +44,10 @@ rule get_data:
 
 rule prep_bins:
     input:
-        bins=os.path.join(DATA_DIR, "mags"),
+        bins=os.path.join(RESULTS_DIR, "bins/finalbins"),
         dummy="status/metabolishmm_DB.done"
     output:
-        bins=directory(os.path.join(DATA_DIR, "mags/fna_mags")),
+        bins=directory(os.path.join(RESULTS_DIR, "mags/fna_mags")),
         dummy="status/bin_prep.done"
     log:
         os.path.join(RESULTS_DIR, "logs/metabolishmm_bin_prep.log")
@@ -60,7 +60,7 @@ rule prep_bins:
 
 rule run_metabolishmm:
     input:
-        bins=os.path.join(DATA_DIR, "mags/fna_mags"),
+        bins=os.path.join(RESULTS_DIR, "mags/fna_mags"),
         meta=rules.metadata.output,
         dummy="status/bin_prep.done"
     output:
