@@ -5,6 +5,9 @@
 ############################## LOG
 sink(file=file(snakemake@log[["out"]], open="wt"), type=c("output", "message"))
 
+# Set TMPDIR using R's Sys.setenvSys.setenv
+(TMPDIR = dirname(snakemake@output[["rds"]])) 
+
 ############################## LIBS
 # loading library
 library(microtrait)
@@ -83,7 +86,7 @@ print(rds_files)
 genomeset_results = tryCatch({
   make.genomeset.results(rds_files = rds_files,
                          ids = sub(".microtrait.rds", "", basename(rds_files)),
-                         ncores = 24)
+                         ncores = ncores)
 }, error = function(e) {
   message("Error in make.genomeset.results: ", e$message, "\n")
   NULL

@@ -66,6 +66,14 @@ if "metabolishmm" in STEPS:
         "status/metabolishmm.done"
     ]
 
+# metabolic
+if "metabolic" in STEPS:
+    include:
+        "rules/metabolic.smk"
+    TARGETS += [
+        "status/metabolic.done"
+    ]
+
 # coverage
 if "coverage" in STEPS:
     include:

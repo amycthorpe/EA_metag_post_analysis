@@ -2,7 +2,7 @@
 # STEPS
 
 # Steps to be done
-steps: ["metathermo", "singlem", "metabolishmm", "microtrait"] 
+steps: ["metathermo", "singlem", "metabolishmm", "metabolic"] #, "microtrait"] 
   #steps: ["coverage"] #"microtrait", "genomad"
 
 
@@ -60,3 +60,6 @@ gtdbtk:
 
 mapping:
   threads: 36
+
+metabolic:
+  path: "/prj/DECODE/ea_biofilm_results/metabolic/METABOLIC"
