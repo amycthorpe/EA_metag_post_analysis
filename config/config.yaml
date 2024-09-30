@@ -2,7 +2,7 @@
 # STEPS
 
 # Steps to be done
-steps: ["metathermo", "singlem", "metabolishmm", "metabolic"] #, "microtrait"] 
+steps: ["metathermo", "singlem", "metabolishmm", "metabolic", "microtrait", "multiqc"] 
   #steps: ["coverage"] #"microtrait", "genomad"
 
 
@@ -63,3 +63,6 @@ mapping:
 
 metabolic:
   path: "/prj/DECODE/ea_biofilm_results/metabolic/METABOLIC"
+
+multiqc:
+  threads: 64

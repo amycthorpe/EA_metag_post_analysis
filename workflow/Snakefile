@@ -85,7 +85,13 @@ if "coverage" in STEPS:
         "status/bin_coverage.done"
     ]
 
-
+# multiqc
+if "multiqc" in STEPS:
+    include:
+        "rules/multiqc.smk"
+    TARGETS += [
+        "status/multiqc.done"
+    ]
 
 # No targets
 if len(TARGETS) == 0:

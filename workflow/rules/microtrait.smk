@@ -2,7 +2,7 @@
 Author: Susheel Bhanu BUSI & Amy Thorpe
 Affiliation: Molecular Ecology group, UKCEH
 Date: [2024-07-01]
-Run: snakemake -s workflow/rules/microtraint.smk --use-conda --cores 64 -rp
+Run: snakemake -s workflow/rules/microtrain.smk --use-conda --cores 64 -rp
 Latest modification:
 Purpose: To run microtrait on MAGs
 """
@@ -43,8 +43,7 @@ rule run_microtrait:
     output:
         rds = os.path.join(RESULTS_DIR, "microtrait/genomeset_results.rds")
     conda:
-        "/hdd0/susbus/tools/conda_envs/r_env"
-#        os.path.join(ENV_DIR, "microtrait.yaml")
+        "microtrait"
     log:
         out = os.path.join(RESULTS_DIR, "logs/microtrait.log")
     message:
